@@ -6,7 +6,7 @@
 __global__ void alibi_forward_kernel(
     const float* scores, 
     const float* slopes, 
-    const float* output, 
+    float* output, 
     int B, // B = batch
     int H, // H = head
     int N  // N = sequence length
@@ -34,9 +34,9 @@ __global__ void alibi_forward_kernel(
 
 // Launcher
 void launch_alibi_forward(
-    const float* scores;
-    const float* slopes;
-    const float* output;
+    const float* scores,
+    const float* slopes,
+    float* output,
     int B,
     int H,
     int N, 

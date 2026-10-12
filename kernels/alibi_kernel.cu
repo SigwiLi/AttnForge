@@ -25,7 +25,7 @@ __global__ void alibi_forward_kernel(
 
     int j = idx % N;
     int i = (idx / N) % N;
-    int h = (idx/(static cast<long long>(N) * N)) % H;
+    int h = (idx/(static_cast<long long>(N) * N)) % H;
     int b = idx / (H * N * N);
 
     if (j > i){

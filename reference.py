@@ -11,7 +11,10 @@ def alibi_reference(scores, slopes):
 
     seq_len = scores.shape[-1]
 
-    positions = torch.arange(seq_len)
+    positions = torch.arange(
+        seq_len,
+        device=scores.device,
+        )
 
     i = positions[:, None] # Query -> Columns
     j = positions[None, :] # Keys -> Rows
